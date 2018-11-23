@@ -1,12 +1,16 @@
 import $ from 'jquery';
 import Vue from 'vue';
+import App from './App.vue'
 
-$(function () {
+// $(function () {
 
-    $('.title').html('Webpack');
+//     $('.title').html('Webpack');
 
-});
+// });
 
+new Vue({
+    el: '#app',
+    render: h => h(App)
+})
 
-import './css/style.css';
 import './scss/main.scss';

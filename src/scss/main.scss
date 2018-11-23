@@ -1,3 +1,20 @@
+@import 'base/variables';
+@import 'base/settings';
+@import 'base/mixins';
+@import 'base/reset';
+
 body {
     background: pink;
+}
+
+.b-container {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    @include tablet_max {
+        width: 100%;
+    }
+    @include laptop {
+        width: 100%;
+    }
 }
