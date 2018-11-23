@@ -1,5 +1,6 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const htmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 
 let conf = {
@@ -39,13 +40,34 @@ let conf = {
             {
                 test: /\.vue$/,
                 use: 'vue-loader'
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    'html-loader',
+                ]
+            },
+            {
+                test: /\.(jpg|png)$/,
+                use: [
+                    'file-loader'
+                    // {
+                    //     loader: 'file-loader',
+                    //     options: {
+                    //         name: '[name].[ext]',
+                    //         outputPath: 'img/',
+                    //         publicPath: 'img/'
+                    //     }
+                    // }
+                ]
             }
 
         ]
     },
     plugins: [
         new ExtractTextPlugin('style.css'),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new htmlWebpackPlugin()
     ]
 }
 

@@ -2,6 +2,7 @@ import $ from 'jquery';
 import Vue from 'vue';
 import App from './App.vue';
 import Menu from './components/Menu.vue';
+import store from './store/index.babel.js';
 
 // $(function () {
 
@@ -16,6 +17,7 @@ new Vue({
 
 new Vue({
     el: '.b-nav',
+    store: store,
     render: h => h(Menu)
 })
 

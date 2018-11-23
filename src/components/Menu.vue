@@ -1,14 +1,14 @@
 <template>
   <div class="b-container">
+    <img src="img/logo.png" alt="logo" class="b-nav-logo">
     <ul class="b-nav-list">
         <li class="b-nav-list__item"
-            v-for="data in menuItems"
-            :key="data.name"
-            v-bind:class="{
-                'b-nav-list__item-active':data.active === true
-                }"
+            v-for="(item, index) in listData()"
+            :key="item.name"
+            v-on:click="classActive( index )"
+            v-bind:class="{ 'b-nav-list__item-active':item.active === true }"
             >
-            {{ data.name }}
+            {{ item.name }}
         </li>
     </ul>
   </div>
@@ -18,28 +18,16 @@
 <script>
 export default {
 
-    data() {
-        return {
-            menuItems : [
-                {
-                    name: 'Item_1',
-                    active : true
-                },
-                {
-                    name: 'Item_2',
-                    active : false
-                },
-                {
-                    name: 'Item_3',
-                    active : false
-                },
-                {
-                    name: 'Item_4',
-                    active : false
-                },
-            ]
+    methods : {
+        listData() {
+            return this.$store.state.menuItems;
+        },
+        classActive: function ( index ) {
+            this.$store.commit('classActive', index );
+            console.log(index);
         }
-    }
+    },
+
 }
 </script>
 
