@@ -8,7 +8,7 @@
             v-on:click="classActive( index )"
             v-bind:class="{ 'b-nav-list__item-active':item.active === true }"
             >
-            {{ item.name }}
+            <a v-bind:href="item.href">{{ item.name }}</a>
         </li>
     </ul>
   </div>
